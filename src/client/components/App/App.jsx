@@ -2,6 +2,7 @@ import React, { Suspense, useState, useEffect } from 'react';
 import Grid from '@material-ui/core/Grid'
 import { hot } from 'react-hot-loader'
 import { withStyles } from '@material-ui/core/styles'
+import './styles.scss';
 
 import compose from 'recompose/compose'
 
