@@ -1,3 +1,16 @@
 body{
   background: #212122;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  max-width: 100%;
+  overflow: hidden;
+  svg.svgLogo{
+    .cls-1 {
+      fill: #fff;
+    }
+    .cls-2 {
+      fill: #e72421;
+    }
+  }
 }
