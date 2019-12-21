@@ -1,29 +1,29 @@
 import React, { Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 import { hot } from 'react-hot-loader'
 import { makeStyles } from '@material-ui/core/styles'
-import './styles.scss';
+import { Route, Switch } from 'react-router-dom';
+
 import compose from 'recompose/compose'
 
-import Home from '../Home/Home'
-import VisualizationsHome from '../Visualizations/VisualizationsHome'
 const useStyles = makeStyles(theme => ({
   mainContainer: {
-    width: '100vw',
-    height: '100vh',
-    paddingTop: theme.spacing(5)
+    maxWidth: '1200px',
+    margin: '0 auto'
   }
 }))
 
-const App = (props) => {
+const VisualizationsHome = (props) => {
   const classes = useStyles()
   const renderApp = (
     <Grid container direction="row" className={classes.mainContainer}>
+      <Typography>Test</Typography>
       <Switch>
         <Suspense fallback={<div>Loading...</div>}>
-          <Route exact path='/' component={Home} />
-          <Route path='/visualizations' render={(props) => <VisualizationsHome {...props} />} />
+          {/* <Route exact path='/' component={Home} />
+          <Route exact path='/visualizations' component={VisualizationsHome} /> */}
         </Suspense>
       </Switch>
     </Grid>
@@ -31,7 +31,12 @@ const App = (props) => {
   return renderApp
 }
 
+VisualizationsHome.propTypes = {
+  match: PropTypes.shape({
+    path: PropTypes.string.isRequired
+  }).isRequired
+}
+
 export default compose(
   hot(module),
-)(App)
-
+)(VisualizationsHome)
